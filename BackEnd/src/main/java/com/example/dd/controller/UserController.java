@@ -5,6 +5,8 @@ import com.example.dd.models.UserModel;
 import com.example.dd.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/")
@@ -17,7 +19,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public User RegisterNewUser(@RequestBody UserModel user){
+    public UserModel RegisterNewUser(@RequestBody UserModel user){
         return userService.RegisterNeUser(user);
+    }
+
+    @RequestMapping(value = "user/{userID}", method = RequestMethod.GET)
+    public Optional<User> GetUserDetails(@PathVariable  String userID){
+        return userService.GetUserDetailsByUserID(userID);
     }
 }
