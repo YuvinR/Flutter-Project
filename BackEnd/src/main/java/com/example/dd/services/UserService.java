@@ -2,6 +2,7 @@ package com.example.dd.services;
 
 import com.example.dd.entity.User;
 import com.example.dd.models.UserModel;
+import com.example.dd.models.UserValidationModel;
 import com.example.dd.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,35 @@ public class UserService {
         }
 
         return  userObject;
+    }
+
+    public Optional<User> GetUserDetailsByUserName(String UserName){
+
+        Optional<User> userObject = Optional.of(new User());
+
+        try{
+            userObject = Optional.ofNullable(userRepository.findUserByUserName(UserName));
+        }catch (Exception ex){
+            System.out.println("Get User Exception " + ex);
+            throw ex;
+        }
+        return  userObject;
+    }
+
+    public boolean IsValidUser(UserValidationModel validationModel) {
+        Optional<User> userObject = Optional.of(new User());
+
+        try {
+            userObject = Optional.ofNullable(userRepository.findUserByUserNameAndPassword(validationModel.getUserName().toString(), validationModel.getPassword().toString()));
+        } catch (Exception ex) {
+            System.out.println("Valid User Exception " + ex);
+            throw ex;
+        }
+
+        if (userObject.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
 }
