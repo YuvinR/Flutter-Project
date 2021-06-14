@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
+import 'SecondScreen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -38,16 +40,3 @@ class Splash2 extends StatelessWidget {
   }
 }
 
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-     
-      body: Center(
-          child: Text(
-        "Home page",
-        textScaleFactor: 2,
-      )),
-    );
-  }
-}
