@@ -27,13 +27,25 @@ class _UIHeaderState extends State<UIHeader> {
           child: Column(children: <Widget>[
             Container(
               alignment: Alignment.topLeft,
-              child: Row(children: <Widget>[
-                CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 20,
-                    child: Icon(Icons.home_filled, color: Colors.black)),
+              child: Row(
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SecondScreen()),
+                      );
+                    },
+                    child:
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 20,
+                      child: Icon(Icons.home_filled, color: Colors.black)),
+                  ),
               ]),
-            )
+            
+            ),
           ]),
         ),
       ),
