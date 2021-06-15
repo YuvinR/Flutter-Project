@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:splash/LoginScreen.dart';
 import 'package:splash/LunchBuddies.dart';
 import 'package:splash/UserProfile.dart';
 import 'package:splashscreen/splashscreen.dart';
+
 
 import 'SecondScreen.dart';
 
@@ -29,7 +31,7 @@ class Splash2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 10,
-      navigateAfterSeconds: new SecondScreen(),
+      navigateAfterSeconds: new LoginScreen(),
       title: new Text(
         '',
         textScaleFactor: 2,
