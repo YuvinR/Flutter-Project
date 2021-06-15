@@ -29,7 +29,7 @@ class Splash2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 10,
-      navigateAfterSeconds: new LunchBuddiesScreen(),
+      navigateAfterSeconds: new SecondScreen(),
       title: new Text(
         '',
         textScaleFactor: 2,

@@ -17,7 +17,7 @@ class _UIHeaderState extends State<UIHeader> {
         decoration: BoxDecoration(
           image: DecorationImage(
             alignment: Alignment.topCenter,
-            image: AssetImage('assets/images/Header_2.png'),
+            image: AssetImage('assets/images/Header_Org.png'),
           ),
         ),
       ),
