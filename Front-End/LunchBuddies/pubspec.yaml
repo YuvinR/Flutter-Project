@@ -42,9 +42,11 @@ dev_dependencies:
 flutter:
   
   assets:
-    - assets/images/LunchBuddies.png
-    - assets/images/header.png
-    - assets/images/Header_2.png
+    - assets/images/
+    # - assets/images/LunchBuddies.png
+    # - assets/images/header.png
+    # - assets/images/Header_2.png
+    # - assets/images/headerOrg.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
