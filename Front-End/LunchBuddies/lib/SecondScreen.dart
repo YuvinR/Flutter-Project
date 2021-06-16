@@ -54,8 +54,7 @@ class SecondScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => RestaurantsScreen()),
+                        MaterialPageRoute(builder: (context) => Rest()),
                       );
                     },
                   ),
@@ -63,7 +62,6 @@ class SecondScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: ElevatedButton.icon(
-                            
                     icon: Icon(Icons.group_sharp),
                     label: Text(
                       "Lunch \nBuddies",
