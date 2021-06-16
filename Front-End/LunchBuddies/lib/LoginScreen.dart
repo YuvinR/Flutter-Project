@@ -16,9 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future<bool> validateUser() async {
+  Future validateUser() async {
     final response = await http.post(
-      Uri.parse('localhost:8080/isValidUser'),
+      Uri.parse('https://lunbu.herokuapp.com/isValidUser'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -28,22 +28,21 @@ class _LoginScreenState extends State<LoginScreen> {
       }),
     );
 
-    if (response.statusCode == 201) {
-      return true;
+    if (response.statusCode == 200) {
+      if (response.body.toString() == 'true') {
+        print("USer validated");
+        print("Getting the Response Body");
+        print(response.body);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SecondScreen()),
+        );
+        return response.body;
+      }
     } else {
       throw Exception('No User Find');
     }
   }
-
-  // final ApiService api = ApiService();
-
-  // Future userLoginMethod(){
-  //   Future<bool> returnedValue = api.validateUser(nameController.value.text, passwordController.value.text);
-
-  //   return returnedValue;
-  //   // throw Exception('No User FInd');
-
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -92,35 +91,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 100,
                       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: ElevatedButton(
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFF08D25),
-                        ),
-                        onPressed: () {
-                          // if (validateUser() == true) {
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => SecondScreen()),
-                          //   );
-                          // }
-                          // );
-                          if (passwordController.value.text == "abcd" &&
-                              nameController.value.text == 'abcd') {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SecondScreen()),
-                            );
-                          }
-                        },
-                      ),
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFF08D25),
+                          ),
+                          onPressed: validateUser
+
+                          ),
                     ),
                   ),
                 ],
