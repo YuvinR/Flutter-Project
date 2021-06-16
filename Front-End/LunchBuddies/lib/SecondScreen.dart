@@ -13,7 +13,7 @@ class SecondScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          height: MediaQuery.of(context).size.height * .3,
+          height: MediaQuery.of(context).size.height * .25,
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: <Widget>[
@@ -21,7 +21,7 @@ class SecondScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Align(
-                  alignment: Alignment(-1, 0.2),
+                  alignment: Alignment(-1, 0.5),
                   child: Text(
                     "Home",
                     style: Theme.of(context).textTheme.headline4!.copyWith(

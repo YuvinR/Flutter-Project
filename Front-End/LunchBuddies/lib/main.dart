@@ -30,6 +30,7 @@ class Splash2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
+      imageBackground: AssetImage('assets/images/LoginUI_Screen.png'),
       seconds: 10,
       navigateAfterSeconds: new LoginScreen(),
       title: new Text(
@@ -37,7 +38,9 @@ class Splash2 extends StatelessWidget {
         textScaleFactor: 2,
       ),
       image: new Image.asset('assets/images/LunchBuddies.png'),
-      loadingText: Text("Loading"),
+      loadingText: Text("Loading",
+        style: TextStyle(color: Colors.white),
+      ),
       photoSize: 100.0,
       loaderColor: Colors.blue,
     );
