@@ -13,7 +13,7 @@ class SecondScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          height: MediaQuery.of(context).size.height * .25,
+          height: MediaQuery.of(context).size.height * .28,
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: <Widget>[
@@ -21,7 +21,7 @@ class SecondScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Align(
-                  alignment: Alignment(-1, 0.5),
+                  alignment: Alignment(-1, 0.35),
                   child: Text(
                     "Home",
                     style: Theme.of(context).textTheme.headline4!.copyWith(
@@ -36,7 +36,7 @@ class SecondScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .7,
           width: MediaQuery.of(context).size.width,
           child: Container(
-            padding: EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.only(left: 25, right: 25),
             child: GridView.count(
               primary: false,
               // padding: const EdgeInsets.all(20),
@@ -44,69 +44,248 @@ class SecondScreen extends StatelessWidget {
               mainAxisSpacing: 10,
               crossAxisCount: 2,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.restaurant),
-                    label: Text(
-                      "Resturant",
+                Container(
+        
+                  child: Card(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFE9ECEF),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rest()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage('assets/images/Resturant_Icon.png'),
+                              height: 78,
+                              width: 78,
+                            ),
+                            Divider(
+                              thickness: 3,
+                              indent: 5,
+                              endIndent: 5,
+                              color: Color(0xFFADB5BD),
+                            ),
+                            Text(
+                              "Restaurants",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFF343A40),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                          )
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Rest()),
-                      );
-                    },
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.group_sharp),
-                    label: Text(
-                      "Lunch \nBuddies",
+                 Container(
+        
+                  child: Card(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFE9ECEF),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LunchBuddiesScreen()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage('assets/images/Buddies_Icon.png'),
+                              height: 78,
+                              width: 78,
+                            ),
+                            Divider(
+                              thickness: 3,
+                              indent: 5,
+                              endIndent: 5,
+                              color: Color(0xFFADB5BD),
+                            ),
+                            Text(
+                              "Lunch \nBuddies",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFF343A40),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                          )
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LunchBuddiesScreen()),
-                      );
-                    },
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.edit),
-                    label: Text(
-                      "Profile",
+                Container(
+        
+                  child: Card(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFE9ECEF),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => UserProfileScreen()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage('assets/images/user_Avatar.png'),
+                              height: 78,
+                              width: 78,
+                            ),
+                            Divider(
+                              thickness: 3,
+                              indent: 5,
+                              endIndent: 5,
+                              color: Color(0xFFADB5BD),
+                            ),
+                            Text(
+                              "Profile",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFF343A40),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                          )
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => UserProfileScreen()),
-                      );
-                    },
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.restaurant),
-                    label: Text(
-                      "About Us",
+                Container(
+        
+                  child: Card(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFE9ECEF),
+                      ),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage('assets/images/Buddies_Icon.png'),
+                              height: 78,
+                              width: 78,
+                            ),
+                            Divider(
+                              thickness: 3,
+                              indent: 5,
+                              endIndent: 5,
+                              color: Color(0xFFADB5BD),
+                            ),
+                            Text(
+                              "About Us",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFF343A40),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                          )
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AboutUsScreen()),
-                      );
-                    },
                   ),
                 ),
+           
+           
+           
+                // Card(
+ 
+                //   child: ElevatedButton.icon(
+                //     icon: Icon(Icons.group_sharp,
+                //     color: Colors.black),
+                //     label: Text(
+                //       "About Us",
+                //       style: TextStyle(
+                //         color: Colors.black
+                //       ),
+                //     ),
+                //     style: ElevatedButton.styleFrom(
+                //       primary: Colors.white
+                //     ),
+                //     onPressed: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => AboutUsScreen()),
+                //       );
+                //     },
+                //   ),
+                // ),
+                // Card(
+                
+                //   child: ElevatedButton.icon(
+                //     icon: Icon(Icons.edit,
+                //     color: Colors.black,),
+                //     label: Text(
+                //       "Profile",
+                //       style: TextStyle(
+                //         color: Colors.black
+                //       ),
+                //     ),
+                //      style: ElevatedButton.styleFrom(
+                //       primary: Colors.white
+                //      ),
+                //     onPressed: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => UserProfileScreen()),
+                //       );
+                //     },
+                //   ),
+                // ),
+                // Card(
+    
+                //   child: ElevatedButton.icon(
+                //     icon: Icon(Icons.restaurant,
+                //     color: Colors.black,),
+                //     label: Text(
+                //       "About Us",
+                //       style: TextStyle(color: Colors.black),
+                //     ),
+                //     style: ElevatedButton.styleFrom(
+                //       primary: Colors.white,
+                //     ),
+                //     onPressed: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => AboutUsScreen()),
+                //       );
+                //     },
+                //   ),
+                // ),
               ],
             ),
           ),
