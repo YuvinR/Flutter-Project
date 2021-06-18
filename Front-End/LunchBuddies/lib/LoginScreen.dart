@@ -30,14 +30,23 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (response.statusCode == 200) {
       if (response.body.toString() == 'true') {
-        print("USer validated");
-        print("Getting the Response Body");
-        print(response.body);
+        // print("USer validated");
+        // print("Getting the Response Body");
+        // print(response.body);
+        final snackBar = SnackBar(
+          content: Text('Record Has Been Updated'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => SecondScreen()),
         );
         return response.body;
+      }else{
+        final snackBar = SnackBar(
+          content: Text('Invalid Credentials. Try again.'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     } else {
       throw Exception('No User Find');
