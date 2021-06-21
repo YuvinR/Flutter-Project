@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splash/AboutUsScreen.dart';
+import 'package:splash/InviteBuddiesScreen.dart';
 import 'package:splash/LunchBuddies.dart';
 import 'package:splash/RestaurantsScreen.dart';
 import 'package:splash/UserProfile.dart';
@@ -45,247 +46,178 @@ class SecondScreen extends StatelessWidget {
               crossAxisCount: 2,
               children: <Widget>[
                 Container(
-        
                   child: Card(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFFE9ECEF),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Rest()),
                         );
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
-                        child: Column(
-                          children: <Widget>[
-                            Image(
-                              image: AssetImage('assets/images/Resturant_Icon.png'),
-                              height: 78,
-                              width: 78,
-                            ),
-                            Divider(
-                              thickness: 3,
-                              indent: 5,
-                              endIndent: 5,
-                              color: Color(0xFFADB5BD),
-                            ),
-                            Text(
-                              "Restaurants",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF343A40),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                          padding: EdgeInsets.all(5),
+                          child: Column(
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage(
+                                    'assets/images/Resturant_Icon.png'),
+                                height: 78,
+                                width: 78,
                               ),
-                            ),
-                          ],
-                          )
-                      ),
-                    ),
-                  ),
-                ),
-                 Container(
-        
-                  child: Card(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xFFE9ECEF),
-                      ),
-                      onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LunchBuddiesScreen()),
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(5),
-                        child: Column(
-                          children: <Widget>[
-                            Image(
-                              image: AssetImage('assets/images/Buddies_Icon.png'),
-                              height: 78,
-                              width: 78,
-                            ),
-                            Divider(
-                              thickness: 3,
-                              indent: 5,
-                              endIndent: 5,
-                              color: Color(0xFFADB5BD),
-                            ),
-                            Text(
-                              "Lunch \nBuddies",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF343A40),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                              Divider(
+                                thickness: 3,
+                                indent: 5,
+                                endIndent: 5,
+                                color: Color(0xFFADB5BD),
                               ),
-                            ),
-                          ],
-                          )
-                      ),
+                              Text(
+                                "Restaurants",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF343A40),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )),
                     ),
                   ),
                 ),
                 Container(
-        
                   child: Card(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFFE9ECEF),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => UserProfileScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => LunchBuddiesScreen()),
                         );
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
-                        child: Column(
-                          children: <Widget>[
-                            Image(
-                              image: AssetImage('assets/images/user_Avatar.png'),
-                              height: 78,
-                              width: 78,
-                            ),
-                            Divider(
-                              thickness: 3,
-                              indent: 5,
-                              endIndent: 5,
-                              color: Color(0xFFADB5BD),
-                            ),
-                            Text(
-                              "Profile",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF343A40),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                          padding: EdgeInsets.all(5),
+                          child: Column(
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage(
+                                    'assets/images/Buddies_Icon.png'),
+                                height: 78,
+                                width: 78,
                               ),
-                            ),
-                          ],
-                          )
-                      ),
+                              Divider(
+                                thickness: 3,
+                                indent: 5,
+                                endIndent: 5,
+                                color: Color(0xFFADB5BD),
+                              ),
+                              Text(
+                                "Lunch \nBuddies",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF343A40),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )),
                     ),
                   ),
                 ),
                 Container(
-        
                   child: Card(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFFE9ECEF),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => UserProfileScreen()),
                         );
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
-                        child: Column(
-                          children: <Widget>[
-                            Image(
-                              image: AssetImage('assets/images/Buddies_Icon.png'),
-                              height: 78,
-                              width: 78,
-                            ),
-                            Divider(
-                              thickness: 3,
-                              indent: 5,
-                              endIndent: 5,
-                              color: Color(0xFFADB5BD),
-                            ),
-                            Text(
-                              "About Us",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF343A40),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                          padding: EdgeInsets.all(5),
+                          child: Column(
+                            children: <Widget>[
+                              Image(
+                                image:
+                                    AssetImage('assets/images/user_Avatar.png'),
+                                height: 78,
+                                width: 78,
                               ),
-                            ),
-                          ],
-                          )
-                      ),
+                              Divider(
+                                thickness: 3,
+                                indent: 5,
+                                endIndent: 5,
+                                color: Color(0xFFADB5BD),
+                              ),
+                              Text(
+                                "Profile",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF343A40),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )),
                     ),
                   ),
                 ),
-           
-           
-           
-                // Card(
- 
-                //   child: ElevatedButton.icon(
-                //     icon: Icon(Icons.group_sharp,
-                //     color: Colors.black),
-                //     label: Text(
-                //       "About Us",
-                //       style: TextStyle(
-                //         color: Colors.black
-                //       ),
-                //     ),
-                //     style: ElevatedButton.styleFrom(
-                //       primary: Colors.white
-                //     ),
-                //     onPressed: () {
-                //       Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => AboutUsScreen()),
-                //       );
-                //     },
-                //   ),
-                // ),
-                // Card(
-                
-                //   child: ElevatedButton.icon(
-                //     icon: Icon(Icons.edit,
-                //     color: Colors.black,),
-                //     label: Text(
-                //       "Profile",
-                //       style: TextStyle(
-                //         color: Colors.black
-                //       ),
-                //     ),
-                //      style: ElevatedButton.styleFrom(
-                //       primary: Colors.white
-                //      ),
-                //     onPressed: () {
-                //       Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => UserProfileScreen()),
-                //       );
-                //     },
-                //   ),
-                // ),
-                // Card(
-    
-                //   child: ElevatedButton.icon(
-                //     icon: Icon(Icons.restaurant,
-                //     color: Colors.black,),
-                //     label: Text(
-                //       "About Us",
-                //       style: TextStyle(color: Colors.black),
-                //     ),
-                //     style: ElevatedButton.styleFrom(
-                //       primary: Colors.white,
-                //     ),
-                //     onPressed: () {
-                //       Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => AboutUsScreen()),
-                //       );
-                //     },
-                //   ),
-                // ),
+                Container(
+                  child: Card(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFE9ECEF),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AboutUsScreen()),
+                        );
+                      },
+                      child: Container(
+                          padding: EdgeInsets.all(5),
+                          child: Column(
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage(
+                                    'assets/images/Buddies_Icon.png'),
+                                height: 78,
+                                width: 78,
+                              ),
+                              Divider(
+                                thickness: 3,
+                                indent: 5,
+                                endIndent: 5,
+                                color: Color(0xFFADB5BD),
+                              ),
+                              Text(
+                                "About Us",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF343A40),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )),
+                    ),
+                  ),
+                ),
+
+              
               ],
             ),
           ),
