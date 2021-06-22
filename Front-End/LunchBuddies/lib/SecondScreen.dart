@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splash/AboutUsScreen.dart';
-import 'package:splash/InviteBuddiesScreen.dart';
+import 'package:splash/ListOfBuddiesScreen.dart';
 import 'package:splash/LunchBuddies.dart';
 import 'package:splash/RestaurantsScreen.dart';
 import 'package:splash/UserProfile.dart';
@@ -97,7 +97,7 @@ class SecondScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LunchBuddiesScreen()),
+                              builder: (context) => ListOfBuddiesScreen()),
                         );
                       },
                       child: Container(
@@ -192,7 +192,7 @@ class SecondScreen extends StatelessWidget {
                             children: <Widget>[
                               Image(
                                 image: AssetImage(
-                                    'assets/images/Buddies_Icon.png'),
+                                    'assets/images/aboutUs.png'),
                                 height: 78,
                                 width: 78,
                               ),
@@ -215,9 +215,7 @@ class SecondScreen extends StatelessWidget {
                           )),
                     ),
                   ),
-                ),
-
-              
+                ),          
               ],
             ),
           ),

@@ -16,10 +16,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   var phonenumberController = TextEditingController();
   var loginUsrId ;
   var loginUsrName;
-    var loginUsrPassword;
-    var loginUsrPhone;
+  var loginUsrPassword;
+  var loginUsrPhone;
 
-   Future getUserDetails() async {
+  Future getUserDetails() async {
     final prefs = await SharedPreferences.getInstance();
     final userNameInLogin = prefs.getString('usrName') ?? '';
 
@@ -48,6 +48,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       throw Exception('No User Find');
     }
   }
+
   Future updateUserDetails() async{
 
     final response = await http.post(
@@ -85,16 +86,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
     void initState() {
       super.initState();
-      print('Before the SetState');
       setState(() {
-        print('Calling GetUserDetails');
         getUserDetails();
       });
-      print('After the SetState');
     }
   
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,12 +175,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       primary: Color(0xFFF08D25),
                     ),
                     onPressed: updateUserDetails
-                    // () {
-                    //   final snackBar = SnackBar(
-                    //     content: Text('Record Has Been Updated'),
-                    //   );
-                    //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    // }
                     ),
               ),
             ),
