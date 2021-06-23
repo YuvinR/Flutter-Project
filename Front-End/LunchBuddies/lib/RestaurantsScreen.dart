@@ -127,7 +127,10 @@ Widget _myListView(BuildContext context, Future<List<Restuarant>> newData) {
                   onTap: (){
                       navigateToAddEdit(context,data[index]);
                   },
-                  leading: Icon(Icons.restaurant),
+                  leading: CircleAvatar(
+        backgroundImage: AssetImage('assets/images/dish.png'),
+     
+      ),
                   title: Text(data[index].restaurantName),
                   trailing: Icon(Icons.keyboard_arrow_right)
                  

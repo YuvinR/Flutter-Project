@@ -57,6 +57,9 @@ class MidContainerView extends StatefulWidget {
 
 class MidContainer extends State<MidContainerView> {
   TextEditingController dateinput = TextEditingController();
+
+  var dataArray = [];
+  final format = DateFormat("yyyy-MM-dd HH:mm");
   late List _myActivities;
   late String _myActivitiesResult;
   final formKey = new GlobalKey<FormState>();
@@ -66,6 +69,7 @@ class MidContainer extends State<MidContainerView> {
   void initState() {
     super.initState();
     setInitValues();
+    fetchfriends().then((value) => setDataArray(value));
     _myActivities = [];
     _myActivitiesResult = '';
   }
@@ -74,13 +78,37 @@ class MidContainer extends State<MidContainerView> {
   var friendController = TextEditingController();
   var timeDateController = TextEditingController();
 
+  setDataArray(value) {
+    dataArray = value;
+  }
+
   Future setInitValues() async {
     final prefs = await SharedPreferences.getInstance();
     final restname = prefs.getString('restuarant') ?? '';
     restuarantController.text = restname;
   }
 
-  Future updateUserDetails() async {}
+  Future updateUserDetails() async {
+    final snackBar = SnackBar(
+      content: Text('Lunch Buddies Session Created '),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  Future<List<dynamic>> fetchfriends() async {
+    final response = await http.get(
+        Uri.parse('https://lunbu.herokuapp.com/getAllFriends'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        });
+    if (response.statusCode == 200) {
+      dataArray = json.decode(response.body);
+      print(dataArray);
+      return json.decode(response.body);
+    } else {
+      throw Exception('No Friend Found');
+    }
+  }
 
   _saveForm() {
     var form = formKey.currentState;
@@ -128,36 +156,28 @@ class MidContainer extends State<MidContainerView> {
                           },
                           dataSource: [
                             {
-                              "display": "Running",
-                              "value": "Running",
+                              "firstName": "Kamal",
+                              "lastname": "Running",
                             },
                             {
-                              "display": "Climbing",
-                              "value": "Climbing",
+                              "firstName": "Nimsara",
+                              "lastname": "Running",
                             },
                             {
-                              "display": "Walking",
-                              "value": "Walking",
+                              "firstName": "Sanduni",
+                              "lastname": "Running",
                             },
                             {
-                              "display": "Swimming",
-                              "value": "Swimming",
+                              "firstName": "Susil",
+                              "lastname": "Running",
                             },
                             {
-                              "display": "Soccer Practice",
-                              "value": "Soccer Practice",
-                            },
-                            {
-                              "display": "Baseball Practice",
-                              "value": "Baseball Practice",
-                            },
-                            {
-                              "display": "Football Practice",
-                              "value": "Football Practice",
+                              "firstName": "Kavindya",
+                              "lastname": "Running",
                             },
                           ],
-                          textField: 'display',
-                          valueField: 'value',
+                          textField: 'firstName',
+                          valueField: 'firstName',
                           okButtonLabel: 'OK',
                           cancelButtonLabel: 'CANCEL',
                           // required: true,
