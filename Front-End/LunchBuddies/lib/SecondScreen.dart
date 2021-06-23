@@ -44,7 +44,50 @@ class SecondScreen extends StatelessWidget {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   crossAxisCount: 2,
-                  children: <Widget>[]),
+                  children: <Widget>[
+                    Container(
+                      child: Card(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFE9ECEF),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Rest()),
+                            );
+                          },
+                          child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Column(
+                                children: <Widget>[
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/images/Resturant_Icon.png'),
+                                    height: 78,
+                                    width: 78,
+                                  ),
+                                  Divider(
+                                    thickness: 3,
+                                    indent: 5,
+                                    endIndent: 5,
+                                    color: Color(0xFFADB5BD),
+                                  ),
+                                  Text(
+                                    "Restaurants",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF343A40),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
+                      ),
+                    ),
+                  ]),
             ),
           ),
         ]);
