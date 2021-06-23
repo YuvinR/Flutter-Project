@@ -77,20 +77,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                     child: TextField(
-                        // obscureText: true,
-                        // controller: passwordController,
-                        // decoration: InputDecoration(
-                        //   border: OutlineInputBorder(),
-                        //   labelText: 'Password',
-                        // ),
-                        ),
+                      obscureText: true,
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      height: 50,
-                      width: 100,
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      // height: 50,
+                      // width: 100,
+                      // padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: ElevatedButton(
                           child: Text(
                             'Login',
