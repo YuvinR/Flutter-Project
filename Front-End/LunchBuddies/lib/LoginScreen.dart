@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFFF08D25),
                           ),
-                          //onPressed: validateUser),
+                          onPressed: validateUser),
                     ),
                   ),
                 ],
