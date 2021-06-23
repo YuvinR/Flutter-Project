@@ -33,6 +33,20 @@ class SecondScreen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .7,
+            width: MediaQuery.of(context).size.width,
+            child: Container(
+              padding: EdgeInsets.only(left: 25, right: 25),
+              child: GridView.count(
+                  primary: false,
+                  // padding: const EdgeInsets.all(20),
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  children: <Widget>[]),
+            ),
+          ),
         ]);
   }
 }
