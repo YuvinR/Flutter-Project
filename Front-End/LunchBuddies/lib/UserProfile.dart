@@ -80,6 +80,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      getUserDetails();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container();
   }
