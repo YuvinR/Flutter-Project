@@ -93,7 +93,10 @@ late List _myActivities;
   }
 
   Future updateUserDetails() async{
-
+  final snackBar = SnackBar(
+          content: Text('Lunch Buddies Session Created '),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   Future<List<dynamic>> fetchfriends() async {
