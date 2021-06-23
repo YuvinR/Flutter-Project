@@ -8,11 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'api_Service.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -28,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         'password': passwordController.value.text
       }),
     );
-    
+
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('usrName', nameController.value.text);
 
@@ -39,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
           MaterialPageRoute(builder: (context) => SecondScreen()),
         );
         return response.body;
-      }else{
+      } else {
         final snackBar = SnackBar(
           content: Text('Invalid Credentials. Try again.'),
         );
@@ -107,9 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFFF08D25),
                           ),
-                          onPressed: validateUser
-
-                          ),
+                          onPressed: validateUser),
                     ),
                   ),
                 ],
@@ -120,4 +113,9 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
 }
