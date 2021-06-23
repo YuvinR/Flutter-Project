@@ -1,38 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'UIHeader.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'package:splash/ListingAddEdit.dart';
+import 'package:splash/Models/Restuarant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+//Creating a class Restuarant to store the data;
 
-//Creating a class user to store the data;
-class User {
-  final String restaurantName;
-  final String rate;
-  final String location;
-  final String phoneNumber;
-  final String restaurantId;
 
-  User(
-      {required this.restaurantName,
-      required this.rate,
-      required this.location,
-      required this.phoneNumber,
-      required this.restaurantId});
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      restaurantName: json['restaurantName'],
-      rate: json['rate'],
-      location: json['location'],
-      phoneNumber: json['phoneNumber'],
-      restaurantId: json['restaurantId'],
-    );
-  }
-
-}
-
-Future<List<User>> getRequest() async {
+Future<List<Restuarant>> getRequest() async {
  
   final response = await http.get(
       Uri.parse('https://lunbu.herokuapp.com/getAllRestaurants'),
@@ -50,7 +29,7 @@ Future<List<User>> getRequest() async {
 
 
   List jsonResponse = json.decode(response.body);
-  return jsonResponse.map((data) => new User.fromJson(data)).toList();
+  return jsonResponse.map((data) => new Restuarant.fromJson(data)).toList();
 
 
 }
@@ -104,7 +83,7 @@ class ItemView extends StatefulWidget {
 }
 
 class BodyLayout extends State<ItemView> {
-  late Future<List<User>> futureData;
+  late Future<List<Restuarant>> futureData;
   @override
   void initState() {
     super.initState();
@@ -117,46 +96,46 @@ class BodyLayout extends State<ItemView> {
   }
 }
 
-Widget _myListView(BuildContext context, Future<List<User>> newData) {
-  final titles = [
-    'bike',
-    'boat',
-    'bus',
-    'car',
-    'railway',
-    'run',
-    'subway',
-    'transit',
-    'walk'
-  ];
+Future navigateToAddEdit(BuildContext context,Restuarant obj) async {
 
-  final icons = [
-    Icons.directions_bike,
-    Icons.directions_boat,
-    Icons.directions_bus,
-    Icons.directions_car,
-    Icons.directions_railway,
-    Icons.directions_run,
-    Icons.directions_subway,
-    Icons.directions_transit,
-    Icons.directions_walk
-  ];
+  final prefs = await SharedPreferences.getInstance();
+    prefs.setString('restuarant',obj.restaurantName );
+               Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CreateRoom(),
+                              settings: RouteSettings(
+                              arguments: obj,
+                            ),
+                          ),
+                             
+                        );
+}
 
-  return FutureBuilder<List<User>>(
+Widget _myListView(BuildContext context, Future<List<Restuarant>> newData) {
+
+  return FutureBuilder<List<Restuarant>>(
     future: newData,
     builder: (context, snapshot) {
       if (snapshot.hasData) {
-        List<User>? data = snapshot.data;
+        List<Restuarant>? data = snapshot.data;
         return ListView.builder(
             itemCount: data!.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
                 child: ListTile(
+                  onTap: (){
+                      navigateToAddEdit(context,data[index]);
+                  },
                   leading: Icon(Icons.restaurant),
                   title: Text(data[index].restaurantName),
                   trailing: Icon(Icons.keyboard_arrow_right)
+                 
                 ),
+                
+           
               );
+              
             });
       } else if (snapshot.hasError) {
         return Text("${snapshot.error}");
