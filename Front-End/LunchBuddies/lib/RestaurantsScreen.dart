@@ -29,18 +29,11 @@ class User {
       restaurantId: json['restaurantId'],
     );
   }
-  // "restaurantName": "Dew Supper Res",
-  //       "rate": "23.22",
-  //       "location": "Colombo",
-  //       "phoneNumber": "0932345321",
-  //       "restaurantId": "60c602217c452030aab4e8d2"
+
 }
 
 Future<List<User>> getRequest() async {
-  //replace your restFull API here.
-  //String url = "https://jsonplaceholder.typicode.com/posts";
-
-  // Uri ur = new Uri(path: "https://lunbu.herokuapp.com/getAllRestaurants");
+ 
   final response = await http.get(
       Uri.parse('https://lunbu.herokuapp.com/getAllRestaurants'),
       headers: <String, String>{
@@ -52,27 +45,14 @@ Future<List<User>> getRequest() async {
     throw Exception('Unexpected error occured!');
   }
 
-  print(response.toString());
+
   var responseData = json.decode(response.body);
-  print(responseData);
+
 
   List jsonResponse = json.decode(response.body);
   return jsonResponse.map((data) => new User.fromJson(data)).toList();
 
-  //Creating a list to store input data;
-  // List<User> users = [];
-  // for (var singleUser in responseData) {
-  //   User user = User(
-  //       restaurantName: singleUser["restaurantName"],
-  //       rate: singleUser["rate"],
-  //       location: singleUser["location"],
-  //       phoneNumber: singleUser["phoneNumber"],
-  //       restaurantId: singleUser["restaurantId"]);
 
-  //   //Adding user to the list.
-  //   users.add(user);
-  // }
-  // return users;
 }
 
 class Rest extends StatefulWidget {
@@ -116,10 +96,7 @@ class RestaurantsScreen extends State<Rest> {
   }
 }
 
-// class ListItemView extends StatefulWidget {
-//   @override
-//   BodyLayout createState() => BodyLayout();
-// }
+
 
 class ItemView extends StatefulWidget {
   @override
@@ -177,6 +154,7 @@ Widget _myListView(BuildContext context, Future<List<User>> newData) {
                 child: ListTile(
                   leading: Icon(Icons.restaurant),
                   title: Text(data[index].restaurantName),
+                  trailing: Icon(Icons.keyboard_arrow_right)
                 ),
               );
             });
