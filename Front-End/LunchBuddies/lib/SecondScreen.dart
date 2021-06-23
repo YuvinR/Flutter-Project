@@ -130,6 +130,49 @@ class SecondScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Container(
+                      child: Card(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFE9ECEF),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UserProfileScreen()),
+                            );
+                          },
+                          child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Column(
+                                children: <Widget>[
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/images/user_Avatar.png'),
+                                    height: 78,
+                                    width: 78,
+                                  ),
+                                  Divider(
+                                    thickness: 3,
+                                    indent: 5,
+                                    endIndent: 5,
+                                    color: Color(0xFFADB5BD),
+                                  ),
+                                  Text(
+                                    "Profile",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF343A40),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
+                      ),
+                    ),
                   ]),
             ),
           ),
