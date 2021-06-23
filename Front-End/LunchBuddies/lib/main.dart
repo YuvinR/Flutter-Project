@@ -35,14 +35,5 @@ class Splash2 extends StatelessWidget {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lunch Buddies',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Splash2(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  Widget build(BuildContext context) {}
 }
