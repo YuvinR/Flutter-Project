@@ -88,9 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      // height: 50,
-                      // width: 100,
-                      // padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      height: 50,
+                      width: 100,
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: ElevatedButton(
                           child: Text(
                             'Login',
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFFF08D25),
                           ),
-                          onPressed: validateUser),
+                          //onPressed: validateUser),
                     ),
                   ),
                 ],
