@@ -26,6 +26,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('usrName', nameController.value.text);
+
+    if (response.statusCode == 200) {
+      if (response.body.toString() == 'true') {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SecondScreen()),
+        );
+        return response.body;
+      } else {}
+    } else {
+      throw Exception('No User Find');
+    }
   }
 
   @override
