@@ -15,9 +15,9 @@ class Splash2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      imageBackground: AssetImage('assets/images/LoginUI_Screen.png'),
-      seconds: 10,
-      navigateAfterSeconds: new LoginScreen(),
+      // imageBackground: AssetImage('assets/images/LoginUI_Screen.png'),
+      // seconds: 10,
+      // navigateAfterSeconds: new LoginScreen(),
       title: new Text(
         '',
         textScaleFactor: 2,
@@ -35,5 +35,14 @@ class Splash2 extends StatelessWidget {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {}
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Lunch Buddies',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Splash2(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
