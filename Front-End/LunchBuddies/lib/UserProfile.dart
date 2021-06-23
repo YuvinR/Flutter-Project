@@ -11,6 +11,14 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  var nameController = TextEditingController();
+  var passwordController = TextEditingController();
+  var phonenumberController = TextEditingController();
+  var loginUsrId;
+  var loginUsrName;
+  var loginUsrPassword;
+  var loginUsrPhone;
+
   @override
   Widget build(BuildContext context) {
     return Container();
