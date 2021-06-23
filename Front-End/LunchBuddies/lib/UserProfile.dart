@@ -57,7 +57,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'userName' :loginUsrName,
+        'userName' :nameController.value.text,
         'password': passwordController.value.text,
         'phoneNumber' :phonenumberController.value.text,
         'userID':loginUsrId
