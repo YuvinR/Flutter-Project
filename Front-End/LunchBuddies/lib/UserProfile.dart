@@ -19,6 +19,35 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   var loginUsrPassword;
   var loginUsrPhone;
 
+  Future getUserDetails() async {
+    final prefs = await SharedPreferences.getInstance();
+    final userNameInLogin = prefs.getString('usrName') ?? '';
+
+    final response = await http.get(
+      Uri.parse(
+          'https://lunbu.herokuapp.com/userByUserName/' + userNameInLogin),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
+
+    print(response.body.toString());
+
+    var userDet = json.decode(response.body);
+    loginUsrName = userDet['userName'];
+    loginUsrPassword = userDet['password'];
+    loginUsrPhone = userDet['phoneNumber'];
+    loginUsrId = userDet['userID'];
+
+    if (response.statusCode == 200) {
+      nameController.text = loginUsrName;
+      passwordController.text = loginUsrPassword;
+      phonenumberController.text = loginUsrPhone;
+    } else {
+      throw Exception('No User Find');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container();
