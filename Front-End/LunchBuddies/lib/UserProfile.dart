@@ -48,6 +48,37 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
+  Future updateUserDetails() async {
+    final response = await http.post(
+      Uri.parse('https://lunbu.herokuapp.com/newUser'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'userName': nameController.value.text,
+        'password': passwordController.value.text,
+        'phoneNumber': phonenumberController.value.text,
+        'userID': loginUsrId
+      }),
+    );
+
+    var userUpdDet = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      if (userUpdDet != null) {
+        print('Updated');
+        final snackBar = SnackBar(
+          content: Text('Profile Has been updated'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      } else {
+        print('Could not complete');
+      }
+    } else {
+      throw Exception('No User Find');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container();
