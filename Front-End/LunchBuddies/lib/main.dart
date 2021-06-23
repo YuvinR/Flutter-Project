@@ -15,9 +15,9 @@ class Splash2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      // imageBackground: AssetImage('assets/images/LoginUI_Screen.png'),
-      // seconds: 10,
-      // navigateAfterSeconds: new LoginScreen(),
+      imageBackground: AssetImage('assets/images/LoginUI_Screen.png'),
+      seconds: 10,
+      navigateAfterSeconds: new LoginScreen(),
       title: new Text(
         '',
         textScaleFactor: 2,
