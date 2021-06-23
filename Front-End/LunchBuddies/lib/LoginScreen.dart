@@ -34,7 +34,12 @@ class _LoginScreenState extends State<LoginScreen> {
           MaterialPageRoute(builder: (context) => SecondScreen()),
         );
         return response.body;
-      } else {}
+      } else {
+        final snackBar = SnackBar(
+          content: Text('Invalid Credentials. Try again.'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
     } else {
       throw Exception('No User Find');
     }
